@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 应用名 -->
+    <dubbo:application name="dubbo.client"/>
+    <dubbo:registry address="redis://10.211.55.8:6379"/>
+
+    <dubbo:annotation package="com.wenky.springboot.learning.dubbo"/>
+    <dubbo:reference timeout="10000" interface="com.wenky.springboot.learning.dubbo.service.DemoService" id="demoService"/>
+
+</beans>

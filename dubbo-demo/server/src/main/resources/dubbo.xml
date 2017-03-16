@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd             
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用暴露出来的 -->
+	<dubbo:application name="dubbo.server"/>
+
+	<!-- <dubbo:registry address="zookeeper://192.168.0.167:2181" check="false" subscribe="false" register=""/>-->
+	<dubbo:registry address="redis://10.211.55.8:6379"/>
+	<!--<dubbo:registry address="zookeeper://10.211.55.8:2181"/>-->
+
+
+	<dubbo:annotation package="com.wenky.springboot.learning.dubbo"/>
+	<!-- 要暴露的服务接口 -->
+	<dubbo:service ref="demoService" interface="com.wenky.springboot.learning.dubbo.service.DemoService" />
+</beans>
